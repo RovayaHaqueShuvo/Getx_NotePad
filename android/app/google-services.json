@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "556486171580",
+    "project_id": "nsda-app-development",
+    "storage_bucket": "nsda-app-development.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556486171580:android:e6c5ede715e7c2fea0e9b9",
+        "android_client_info": {
+          "package_name": "com.example.note_pad_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVG6uS2v5ZexCVg46d3PyRc9V_0ZR4I2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -36,6 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   get:
   intl:
+  firebase_core:
+  cloud_firestore:
+  flutter_easyloading:
+  anim_search_bar:
 
 dev_dependencies:
   flutter_test:

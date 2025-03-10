@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:note_pad_app/FirebaseStoraging/Firebase_Firestore.dart';
+import 'package:note_pad_app/utils/Contants.dart';
 
 import '../getX_management/NotePadController.dart';
 import '../utils/AppColor.dart';
@@ -11,7 +14,7 @@ class Homescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(NotePadController());
+    final controller = Get.put(Firebase_Firestore());
 
     return Scaffold(
       floatingActionButton: FloatingActionButton(
@@ -49,32 +52,61 @@ class Homescreen extends StatelessWidget {
                 ),
                 SizedBox(height: 15),
                 Expanded(
-                  child:
-                  Obx(()=>
-                  controller.notes.isEmpty
-                      ? Text(
-                    "No Notes Found",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: "serif",
-                    ),
-                  )
-                      :  SingleChildScrollView(
+                  child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        ListView.builder(
-                          primary: false,
-                          itemCount: controller.notes.length,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return Customedesign(context: context, index: index, controller: controller,);
+                        StreamBuilder(
+                          stream:
+                              controller.fireStore
+                                  .collection(CollectionID)
+                                  .snapshots(),
+                          builder: (context, snapshot) {
+
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              // Show loading indicator while waiting
+                              EasyLoading.show(status: "Waiting...");
+                              return Center(child: const Text("Data Loading"));
+                            } else if (snapshot.hasError) {
+                              // Dismiss loading and show error if something goes wrong
+                              EasyLoading.dismiss();
+                              EasyLoading.showError("${snapshot.error}");
+                              return Center(
+                                child: const Text("An error occurred"),
+                              );
+                            } else {
+
+                              // Once data is loaded, display ListView
+                              EasyLoading.dismiss();
+                              return ListView.builder(
+                                shrinkWrap: true,
+                                reverse: false,
+                                primary: false,
+                                itemCount:snapshot.data!.docs.length,  // Check if data exists
+
+                                itemBuilder: (context, index) {
+                                  if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                                    return Center(child: Text("No data available"));  // Show a message if no data is found
+                                  }
+
+                                  final data = snapshot.data!.docs[index];
+                                  return Customedesign(
+                                    controller: controller,
+                                    data: data,
+                                    context: context,
+                                    index: index,
+
+                                  );
+                                },
+                              );
+
+                            }
                           },
                         ),
                       ],
                     ),
                   ),
-                  ),)
+                ),
               ],
             ),
           ),

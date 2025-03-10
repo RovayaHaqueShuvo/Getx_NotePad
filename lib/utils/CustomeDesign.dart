@@ -1,23 +1,28 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:note_pad_app/FirebaseStoraging/Firebase_Firestore.dart';
+import 'package:note_pad_app/screens/NoteScreen.dart';
 import 'package:note_pad_app/screens/routes/Routes.dart';
 
 class Customedesign extends StatelessWidget {
   final BuildContext context;
   final index;
+  final data;
   final controller;
 
   const Customedesign({
     super.key,
     required this.context,
     required this.index,
-    required this.controller,
+    required this.data, this.controller
   });
 
   @override
   Widget build(BuildContext context) {
-    final time = DateFormat.MMMEd().format(controller.notes[index].createdTime);
+    final dateTime = (data["Creadted Date"] as Timestamp).toDate();
+    final time = DateFormat.MMMEd().format(dateTime);
     return Container(
       margin: EdgeInsets.symmetric(vertical: 7),
       padding: EdgeInsets.all(2),
@@ -28,11 +33,12 @@ class Customedesign extends StatelessWidget {
       child: ListTile(
         horizontalTitleGap: 0,
         onTap: () {
+
+
           Get.toNamed(
             Routes.noteScreen,
             arguments: {
-              "controller": controller,
-              "index": index,
+              "index": data.id,
               "isUpdate": true,
             },
           );
@@ -49,7 +55,7 @@ class Customedesign extends StatelessWidget {
             textConfirm: "Ok",
             onCancel: () => Navigator.pop(context),
             onConfirm: () {
-              controller.deleteElement(index);
+              controller.deleteElement(data.id);
               Navigator.pop(context);
             },
           );
@@ -61,14 +67,14 @@ class Customedesign extends StatelessWidget {
           decoration: BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
         ),
         title: Text(
-          controller.notes[index].title,
+          data['Title'],
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              controller.notes[index].description,
+              data["Description"],
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
