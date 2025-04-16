@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:note_pad_app/screens/NoteScreen.dart';
-import '../HomeScreen.dart';
+import 'package:note_pad_app/screens/note_screen.dart';
+import '../home_screen.dart';
 import 'Routes.dart';
 
 class RoutesPages {

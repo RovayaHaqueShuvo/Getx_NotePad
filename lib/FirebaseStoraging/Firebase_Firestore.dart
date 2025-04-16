@@ -75,4 +75,24 @@ class Firebase_Firestore extends GetxController {
       print("Failed to update: $error");
     });
   }
+
+  Future<void> searchByTitlePrefix(String query) async {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+    try {
+      QuerySnapshot querySnapshot = await firestore
+          .collection(CollectionID)
+          .orderBy('Title')
+          .startAt([query])
+          .endAt([query + '\uf8ff'])
+          .get();
+
+      for (var doc in querySnapshot.docs) {
+        print("Matching Note: ${doc.data()}");
+      }
+    } catch (e) {
+      print("Error searching: $e");
+    }
+  }
+
 }

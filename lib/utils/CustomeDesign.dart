@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:note_pad_app/FirebaseStoraging/Firebase_Firestore.dart';
-import 'package:note_pad_app/screens/NoteScreen.dart';
+import 'package:note_pad_app/screens/note_screen.dart';
 import 'package:note_pad_app/screens/routes/Routes.dart';
 
 class Customedesign extends StatelessWidget {

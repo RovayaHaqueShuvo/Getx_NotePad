@@ -1,3 +1,4 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -55,7 +56,7 @@ class Notescreen extends StatelessWidget {
                     "Saved",
                     "Note Saved",
                     backgroundColor: AppColor.done,
-                    borderColor: Colors.black.withOpacity(.2),
+                    borderColor: Colors.black.withValues(alpha: .2),
                     borderWidth: 2,
                   );
                   Get.offNamed(Routes.homeScreen);
@@ -88,21 +89,21 @@ class Notescreen extends StatelessWidget {
                                 icon: Icon(Icons.arrow_back_ios),
                                 onPressed: () => Get.back(),
                                 splashColor: AppColor.primary,
-                                highlightColor: Colors.red.withOpacity(.6),
+                                highlightColor: Colors.red.withValues(alpha: .8),
                               ),
                               Row(
                                 children: [
                                   IconButton(
                                     icon: Icon(Icons.link),
                                     highlightColor: AppColor.primary
-                                        .withOpacity(.8),
+                                        .withValues(alpha: .8),
                                     onPressed: () {},
                                   ),
                                   SizedBox(width: 2),
                                   IconButton(
                                     icon: Icon(Icons.share_outlined),
                                     highlightColor: AppColor.primary
-                                        .withOpacity(.8),
+                                        .withValues(alpha: .8),
 
                                     onPressed: () {},
                                   ),
@@ -110,7 +111,7 @@ class Notescreen extends StatelessWidget {
                                   IconButton(
                                     icon: Icon(Icons.more_vert),
                                     highlightColor: AppColor.primary
-                                        .withOpacity(.8),
+                                        .withValues(alpha: .8),
 
                                     onPressed: () {},
                                   ),
@@ -125,7 +126,7 @@ class Notescreen extends StatelessWidget {
                             padding: EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              color: Colors.grey.withOpacity(.2),
+                              color: Colors.grey.withValues(alpha: .2),
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -133,62 +134,48 @@ class Notescreen extends StatelessWidget {
                                 IconButton(
                                   onPressed: () {},
                                   splashColor: AppColor.primary,
-                                  highlightColor: AppColor.primary.withOpacity(
-                                    .8,
-                                  ),
+                                  highlightColor: AppColor.primary.withValues(alpha: .8),
                                   icon: Icon(Icons.format_bold),
                                 ),
                                 IconButton(
                                   onPressed: () {},
                                   splashColor: AppColor.primary,
-                                  highlightColor: AppColor.primary.withOpacity(
-                                    .8,
-                                  ),
+                                  highlightColor: AppColor.primary.withValues(alpha: .8),
 
                                   icon: Icon(Icons.format_italic),
                                 ),
                                 IconButton(
                                   onPressed: () {},
                                   splashColor: AppColor.primary,
-                                  highlightColor: AppColor.primary.withOpacity(
-                                    .8,
-                                  ),
+                                  highlightColor: AppColor.primary.withValues(alpha: .8),
 
                                   icon: Icon(Icons.format_underline),
                                 ),
                                 IconButton(
                                   onPressed: () {},
                                   splashColor: AppColor.primary,
-                                  highlightColor: AppColor.primary.withOpacity(
-                                    .8,
-                                  ),
+                                  highlightColor: AppColor.primary.withValues(alpha: .8),
 
                                   icon: Icon(Icons.format_list_bulleted),
                                 ),
                                 IconButton(
                                   onPressed: () {},
                                   splashColor: AppColor.primary,
-                                  highlightColor: AppColor.primary.withOpacity(
-                                    .8,
-                                  ),
+                                  highlightColor: AppColor.primary.withValues(alpha: .8),
 
                                   icon: Icon(Icons.format_align_left),
                                 ),
                                 IconButton(
                                   onPressed: () {},
                                   splashColor: AppColor.primary,
-                                  highlightColor: AppColor.primary.withOpacity(
-                                    .8,
-                                  ),
+                                  highlightColor: AppColor.primary.withValues(alpha: .8),
 
                                   icon: Icon(Icons.format_align_center),
                                 ),
                                 IconButton(
                                   onPressed: () {},
                                   splashColor: AppColor.primary,
-                                  highlightColor: AppColor.primary.withOpacity(
-                                    .8,
-                                  ),
+                                  highlightColor: AppColor.primary.withValues(alpha: .8),
 
                                   icon: Icon(Icons.format_align_right),
                                 ),
@@ -200,7 +187,7 @@ class Notescreen extends StatelessWidget {
                           padding: EdgeInsets.all(2),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: Colors.black.withOpacity(.2),
+                            color: Colors.black.withValues(alpha: .2),
                           ),
                           child: TextFormField(
                             controller: titleController,
@@ -222,7 +209,7 @@ class Notescreen extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                             ),
                             showCursor: true,
-                            cursorColor: AppColor.primary.withOpacity(.8),
+                            cursorColor: AppColor.primary.withValues(alpha: .8),
                             cursorErrorColor: Colors.red,
                             cursorWidth: 4,
                             cursorOpacityAnimates: true,
@@ -235,11 +222,11 @@ class Notescreen extends StatelessWidget {
                               Container(
                                 margin: EdgeInsets.symmetric(vertical: 5),
                                 height:
-                                    MediaQuery.of(context).size.height * .62,
+                                    MediaQuery.of(context).size.height * .6,
                                 padding: EdgeInsets.all(2),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: Colors.black.withOpacity(.2),
+                                  color: Colors.black.withValues(alpha: .2),
                                 ),
                                 child: SingleChildScrollView(
                                   keyboardDismissBehavior:
@@ -270,9 +257,7 @@ class Notescreen extends StatelessWidget {
                                       fontWeight: FontWeight.w400,
                                     ),
                                     showCursor: true,
-                                    cursorColor: AppColor.primary.withOpacity(
-                                      .8,
-                                    ),
+                                    cursorColor: AppColor.primary.withValues(alpha: .8),
                                     cursorErrorColor: Colors.red,
                                     cursorWidth: 3,
                                     cursorOpacityAnimates: true,
@@ -306,7 +291,7 @@ class Notescreen extends StatelessWidget {
                 "Not Saved",
                 "Please write something first to save",
                 backgroundColor: AppColor.secondary,
-                borderColor: Colors.black.withOpacity(.2),
+                borderColor: Colors.black.withValues(alpha: .2),
                 borderWidth: 2,
               );
             } else {
@@ -326,7 +311,7 @@ class Notescreen extends StatelessWidget {
                   "Saved",
                   "Title Saved",
                   backgroundColor: AppColor.done,
-                  borderColor: Colors.black.withOpacity(.2),
+                  borderColor: Colors.black.withValues(alpha: .2),
                   borderWidth: 2,
                 );
               } else if (titleController.text.isNotEmpty &&
@@ -343,7 +328,7 @@ class Notescreen extends StatelessWidget {
                   "Saved",
                   titleController.text,
                   backgroundColor: AppColor.done,
-                  borderColor: Colors.black.withOpacity(.2),
+                  borderColor: Colors.black.withValues(alpha: .2),
                   borderWidth: 2,
                 );
               } else {
@@ -359,7 +344,7 @@ class Notescreen extends StatelessWidget {
                   "Saved",
                   "Note Saved",
                   backgroundColor: AppColor.done,
-                  borderColor: Colors.black.withOpacity(.2),
+                  borderColor: Colors.black.withValues(alpha: .2),
                   borderWidth: 2,
                 );
                 Get.offNamed(Routes.homeScreen);
@@ -394,26 +379,26 @@ class Notescreen extends StatelessWidget {
                           icon: Icon(Icons.arrow_back_ios),
                           onPressed: () => Get.back(),
                           splashColor: AppColor.primary,
-                          highlightColor: Colors.red.withOpacity(.6),
+                          highlightColor: Colors.red.withValues(alpha: .6),
                         ),
                         Row(
                           children: [
                             IconButton(
                               icon: Icon(Icons.link),
-                              highlightColor: AppColor.primary.withOpacity(.8),
+                              highlightColor: AppColor.primary.withValues(alpha: .8),
                               onPressed: () {},
                             ),
                             SizedBox(width: 2),
                             IconButton(
                               icon: Icon(Icons.share_outlined),
-                              highlightColor: AppColor.primary.withOpacity(.8),
+                              highlightColor: AppColor.primary.withValues(alpha: .8),
 
                               onPressed: () {},
                             ),
                             SizedBox(width: 2),
                             IconButton(
                               icon: Icon(Icons.more_vert),
-                              highlightColor: AppColor.primary.withOpacity(.8),
+                              highlightColor: AppColor.primary.withValues(alpha: .8),
 
                               onPressed: () {},
                             ),
@@ -428,7 +413,7 @@ class Notescreen extends StatelessWidget {
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.grey.withOpacity(.2),
+                        color: Colors.grey.withValues(alpha: .8),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -436,48 +421,48 @@ class Notescreen extends StatelessWidget {
                           IconButton(
                             onPressed: () {},
                             splashColor: AppColor.primary,
-                            highlightColor: AppColor.primary.withOpacity(.8),
+                            highlightColor: AppColor.primary.withValues(alpha: .8),
                             icon: Icon(Icons.format_bold),
                           ),
                           IconButton(
                             onPressed: () {},
                             splashColor: AppColor.primary,
-                            highlightColor: AppColor.primary.withOpacity(.8),
+                            highlightColor: AppColor.primary.withValues(alpha: .8),
 
                             icon: Icon(Icons.format_italic),
                           ),
                           IconButton(
                             onPressed: () {},
                             splashColor: AppColor.primary,
-                            highlightColor: AppColor.primary.withOpacity(.8),
+                            highlightColor: AppColor.primary.withValues(alpha: .8),
 
                             icon: Icon(Icons.format_underline),
                           ),
                           IconButton(
                             onPressed: () {},
                             splashColor: AppColor.primary,
-                            highlightColor: AppColor.primary.withOpacity(.8),
+                            highlightColor: AppColor.primary.withValues(alpha: .8),
 
                             icon: Icon(Icons.format_list_bulleted),
                           ),
                           IconButton(
                             onPressed: () {},
                             splashColor: AppColor.primary,
-                            highlightColor: AppColor.primary.withOpacity(.8),
+                            highlightColor: AppColor.primary.withValues(alpha: .8),
 
                             icon: Icon(Icons.format_align_left),
                           ),
                           IconButton(
                             onPressed: () {},
                             splashColor: AppColor.primary,
-                            highlightColor: AppColor.primary.withOpacity(.8),
+                            highlightColor: AppColor.primary.withValues(alpha: .8),
 
                             icon: Icon(Icons.format_align_center),
                           ),
                           IconButton(
                             onPressed: () {},
                             splashColor: AppColor.primary,
-                            highlightColor: AppColor.primary.withOpacity(.8),
+                            highlightColor: AppColor.primary.withValues(alpha: .8),
 
                             icon: Icon(Icons.format_align_right),
                           ),
@@ -489,7 +474,7 @@ class Notescreen extends StatelessWidget {
                     padding: EdgeInsets.all(2),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.black.withOpacity(.2),
+                      color: Colors.black.withValues(alpha: 0.2),
                     ),
                     child: TextFormField(
                       controller: titleController,
@@ -511,7 +496,7 @@ class Notescreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                       showCursor: true,
-                      cursorColor: AppColor.primary.withOpacity(.8),
+                      cursorColor: AppColor.primary.withValues(alpha: .8),
                       cursorErrorColor: Colors.red,
                       cursorWidth: 4,
                       cursorOpacityAnimates: true,
@@ -519,49 +504,61 @@ class Notescreen extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: Column(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
-                          height: MediaQuery.of(context).size.height * .63,
-                          padding: EdgeInsets.all(2),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.black.withOpacity(.2),
-                          ),
-                          child: SingleChildScrollView(
-                            keyboardDismissBehavior:
-                                ScrollViewKeyboardDismissBehavior.onDrag,
-                            child: TextFormField(
-                              controller: descriptionController,
-                              maxLines: 1000,
-                              decoration: InputDecoration(
-                                prefix: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 5),
-                                ),
-                                suffix: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 1),
-                                ),
-                                border: InputBorder.none,
-                                hintText: "Description",
-                                hintStyle: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            height:
+                                MediaQuery.of(context).size.height * .6,
+                            margin: EdgeInsets.symmetric(vertical: 5),
+                            padding: EdgeInsets.all(2),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.black.withValues(alpha: .2),
+                            ),
+                            child: ConstrainedBox(
+                              constraints: BoxConstraints(
+                                minHeight: 100,
+                                maxHeight: MediaQuery.of(context).size.height * .6,
+                              ),
+                              child: Scrollbar(
+                                child: SingleChildScrollView(
+                                  keyboardDismissBehavior:
+                                  ScrollViewKeyboardDismissBehavior.onDrag,
+                                  child: TextFormField(
+                                    controller: descriptionController,
+                                    maxLines: null,
+                                    decoration: InputDecoration(
+                                      prefix: Padding(
+                                        padding: EdgeInsets.symmetric(horizontal: 5),
+                                      ),
+                                      suffix: Padding(
+                                        padding: EdgeInsets.symmetric(horizontal: 1),
+                                      ),
+                                      border: InputBorder.none,
+                                      hintText: "Description",
+                                      hintStyle: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                    showCursor: true,
+                                    cursorColor: AppColor.primary.withValues(alpha: .8),
+                                    cursorErrorColor: Colors.red,
+                                    cursorWidth: 3,
+                                    cursorOpacityAnimates: true,
+                                  ),
                                 ),
                               ),
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w400,
-                              ),
-                              showCursor: true,
-                              cursorColor: AppColor.primary.withOpacity(.8),
-                              cursorErrorColor: Colors.red,
-                              cursorWidth: 3,
-                              cursorOpacityAnimates: true,
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],
